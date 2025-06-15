@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AnimatedBg() {
+function AboutSection() {
   return (
     <div>
       
@@ -8,4 +8,4 @@ function AnimatedBg() {
   )
 }
 
-export default AnimatedBg
+export default AboutSection
