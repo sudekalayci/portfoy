@@ -35,7 +35,6 @@ const BrushStrokeSvg = () => (
       </filter>
     </defs>
 
-    {/* Fırça darbesi görünümünde dalga yolu */}
     <motion.path
       d="M0,150 C100,120 150,180 250,150 C350,120 400,180 500,150 L500,300 L0,300 Z"
       fill="url(#waveGradient)"
@@ -55,7 +54,6 @@ const BrushStrokeSvg = () => (
       }}
     />
 
-    {/* Kod yazıları - dağılmış ve animasyonlu */}
     <motion.text
       x="40"
       y="80"
@@ -119,9 +117,8 @@ const HeroSection = () => {
   return (
     <section
       id="home"
-      className="min-h-[calc(100vh-64px)] flex flex-col md:flex-row justify-center items-center
-                 text-center md:text-left px-4 md:px-12 relative overflow-hidden gap-12 pt-16"
-      style={{ scrollMarginTop: "4rem" }} 
+      className="min-h-[calc(100vh-64px)] flex flex-col md:flex-row justify-center items-center text-center md:text-left px-4 sm:px-6 md:px-12 py-10 sm:py-12 md:py-16 gap-8 sm:gap-10 md:gap-12 relative overflow-hidden"
+      style={{ scrollMarginTop: "4rem" }}
     >
       {/* Metin */}
       <motion.div
@@ -130,7 +127,7 @@ const HeroSection = () => {
         initial="hidden"
         animate="visible"
       >
-        <motion.h1 className="text-4xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-6 uppercase tracking-widest">
+        <motion.h1 className="text-2xl sm:text-3xl md:text-6xl font-extrabold text-white drop-shadow-lg mb-6 uppercase tracking-wide sm:tracking-wider md:tracking-widest leading-tight">
           {title.split("").map((char, i) => (
             <motion.span key={i} variants={letter}>
               {char === " " ? "\u00A0" : char}
@@ -146,7 +143,7 @@ const HeroSection = () => {
           </span>
         </motion.h1>
 
-        <motion.p className="text-base md:text-xl text-white/90 mb-6 leading-relaxed tracking-wide">
+        <motion.p className="text-sm sm:text-base md:text-xl text-white/90 mb-6 leading-relaxed tracking-wide">
           {description.split("").map((char, i) => (
             <motion.span key={`desc-${i}`} variants={letter}>
               {char}
@@ -161,12 +158,11 @@ const HeroSection = () => {
           className="inline-block bg-pink-500 text-white font-semibold px-6 py-3 rounded-full shadow-md hover:bg-pink-600 transition-all cursor-pointer"
         >
           Projelerimi Gör
-          
         </Link>
       </motion.div>
 
-      {/* SVG */}
-      <div className="flex-1 flex justify-center md:justify-end items-center max-w-[90%]">
+      {/* SVG sadece md ve üstünde görünür */}
+      <div className="hidden md:flex md:relative md:flex-1 justify-center md:justify-end items-center pointer-events-none z-0 opacity-100">
         <BrushStrokeSvg />
       </div>
 
